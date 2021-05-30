@@ -43,13 +43,41 @@ class Welcome extends CI_Controller
 					if (array_search($string, $val) == 0 || array_search($string, $val)) {
 						$key_string = array_search($string, $val);
 						if ($key_string || $key_string === 0) {
-							if ($type == 0) {
+							if ($type == 1) {
 								$encrypted = isset($val[$key_string + 1]) ? $val[$key_string + 1] : $val[0];
 								print_r($encrypted);
 							} else {
 								$encrypted = isset($val[$key_string - 1]) ? $val[$key_string - 1] : $val[count($val) - 1];
 								print_r($encrypted);
 							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	public function to_encrypt_helmy()
+	{
+		$words = array(
+			array('q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'),
+			array('a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'),
+			array('x', 'c', 'v', 'b', 'n', 'm'),
+		);
+		
+		$str = $this->input->post('text');
+		$arr_str = str_split($str);
+		foreach ($arr_str as $string) {
+			$string = strtolower($string);
+			if (!preg_match("/^[a-z]$/", $string)) {
+				print_r($string);
+			} else {
+				foreach ($words as $key => $val) {
+					if (array_search($string, $val) == 0 || array_search($string, $val)) {
+						$key_string = array_search($string, $val);
+						if ($key_string || $key_string === 0) {
+							$encrypted = isset($val[count($val) - $key_string - 1]) ? $val[count($val) - $key_string - 1] : $val[0 + 1];
+							print_r($encrypted);
 						}
 					}
 				}
