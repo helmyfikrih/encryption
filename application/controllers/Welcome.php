@@ -41,7 +41,6 @@ class Welcome extends CI_Controller
 			} else {
 				foreach ($words as $key => $val) {
 					if (array_search($string, $val) == 0 || array_search($string, $val)) {
-						$row_words = $val;
 						$key_string = array_search($string, $val);
 						if ($key_string || $key_string === 0) {
 							if ($type == 0) {
