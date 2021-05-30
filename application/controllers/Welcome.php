@@ -43,7 +43,7 @@ class Welcome extends CI_Controller
 					if (array_search($string, $val) == 0 || array_search($string, $val)) {
 						$key_string = array_search($string, $val);
 						if ($key_string || $key_string === 0) {
-							if ($type == 1) {
+							if ($type == 0) {
 								$encrypted = isset($val[$key_string + 1]) ? $val[$key_string + 1] : $val[0];
 								print_r($encrypted);
 							} else {
